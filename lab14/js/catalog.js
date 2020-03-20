@@ -12,7 +12,7 @@ function populateForm() {
   var selectElement = document.getElementById('items');
   for (var i = 0; i < Product.allProducts.length; i++) {
     var itemEl = document.createElement('option');
-    itemEl.setAttribute = ('value', Product.allProducts[i].name);
+    itemEl.setAttribute('value', Product.allProducts[i].name);
     itemEl.innerText = (Product.allProducts[i].name);
     selectElement.appendChild(itemEl);
   }

@@ -61,11 +61,14 @@ function showCart() {
 
 function removeItemFromCart(event) {
 
-  var deleteItem = event.target.name;
-  var currentCart = JSON.parse(localStorage.getItem('cart'));
+  cart.removeItem(event.target.id);
+  cart.saveToLocalStorage();
+  renderCart();
+  // var deleteItem = event.target.name;
+  // var currentCart = JSON.parse(localStorage.getItem('cart'));
 
-  console.log(deleteItem);
-  console.log(currentCart);
+  // console.log(deleteItem);
+  // console.log(currentCart);
   // cart.removeItem(deleteItem);
   // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
   // TODO: Save the cart back to local storage
