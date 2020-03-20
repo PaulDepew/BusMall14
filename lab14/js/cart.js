@@ -31,24 +31,24 @@ function showCart() {
   var tableEl = document.getElementById('cart');
 
   // TODO: Iterate over the items in the cart
-  for (var i = 0; i < cart.items.items.length; i++) {
+  for (var i = 0; i < cart.items.length; i++) {
 
-    var newProduct = cart.items.items[i];
+    var newProduct = cart.items[i];
     console.log(newProduct);
     var rowEl = document.createElement('tr');
     var linkCell = document.createElement('td') ;
     var quantityCell = document.createElement('td');
     var itemCell = document.createElement('td');
-    var linkItem = document.createElement('a');
-    itemCell.appendChild(linkItem);
+    var buttonEl = document.createElement('button');
 
-    linkItem.textContent = 'X';
-    linkItem.setAttribute('href', );
-    linkCell.setAttribute('class', 'delete-item');
+    buttonEl.textContent = 'X';
+    buttonEl.setAttribute('type', 'submit');
+    buttonEl.setAttribute('name', i);
+    linkCell.appendChild(buttonEl);
     rowEl.appendChild(linkCell);
-    quantityCell.textContent = newProduct[1];
+    quantityCell.textContent = newProduct.quantity;
     rowEl.appendChild(quantityCell);
-    itemCell.textContent = newProduct[0];
+    itemCell.textContent = newProduct.product;
     rowEl.appendChild(itemCell);
     tableEl.appendChild(rowEl);
   }
@@ -61,6 +61,12 @@ function showCart() {
 
 function removeItemFromCart(event) {
 
+  var deleteItem = event.target.name;
+  var currentCart = JSON.parse(localStorage.getItem('cart'));
+
+  console.log(deleteItem);
+  console.log(currentCart);
+  // cart.removeItem(deleteItem);
   // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
   // TODO: Save the cart back to local storage
   // TODO: Re-draw the cart table

@@ -41,10 +41,12 @@ function addSelectedItemToCart() {
   var dropDownMenu = document.getElementById('items');
   var quantityMenu = document.getElementById('quantity');
   // TODO: get the quantity
-  var newItem = [dropDownMenu.options[dropDownMenu.selectedIndex].value, quantityMenu.value];
-  // TODO: using those, add one item to the Cart
-  cart.items.push(newItem);
+  var quantity =  quantityMenu.value;
+  var product = dropDownMenu.options[dropDownMenu.selectedIndex].value;
+  // // TODO: using those, add one item to the Cart
+  // cart.items.push(newItem);
   // console.log(cart);
+  cart.addItem(product, quantity);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
@@ -66,7 +68,7 @@ function updateCartPreview() {
     divEl.appendChild(listEl);
     var previewProduct = cart.items[i];
 
-    var itemPreview =  previewProduct[0] + ' ' + previewProduct[1];
+    var itemPreview =  previewProduct.product + ' ' + previewProduct.quantity;
     var itemEl = document.createElement('li');
     itemEl.innerText = itemPreview;
     listEl.appendChild(itemEl);
